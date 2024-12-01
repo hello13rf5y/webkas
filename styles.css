@@ -1,0 +1,107 @@
+body {
+  font-family: 'Nunito', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  width: 100%;
+  max-width: 400px;
+  background: #ffffff;
+  border-radius: 36px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.header h1 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #4caf50;
+  margin-bottom: 10px;
+}
+
+.header .material-icons {
+  font-size: 48px;
+  color: #4caf50;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 36px;
+  box-sizing: border-box;
+  font-size: 16px;
+  margin-top: 5px;
+}
+
+.form-group input:focus {
+  border-color: #4caf50;
+  outline: none;
+}
+
+button {
+  width: 100%;
+  padding: 15px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 36px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #388e3c;
+}
+
+.data-container, .history-container {
+  margin-top: 20px;
+}
+
+.data-box, .history-box {
+  background-color: #fafafa;
+  border-radius: 36px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.data-box h4, .history-box h4 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #4caf50;
+  margin-bottom: 10px;
+}
+
+.data-box .amount, .history-box .amount {
+  font-weight: 600;
+  font-size: 18px;
+  color: #388e3c;
+}
+
+#totalKas {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 700;
+  color: #4caf50;
+  margin-top: 20px;
+}
