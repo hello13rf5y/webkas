@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin - Uang Kas</title>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <span class="material-icons">account_balance_wallet</span>
+      <h1>Admin Uang Kas</h1>
+    </div>
+    <div class="form-group">
+      <label for="nameInput">Nama Pengguna</label>
+      <input type="text" id="nameInput" placeholder="Masukkan nama">
+    </div>
+    <div class="form-group">
+      <label for="amountInput">Jumlah Uang</label>
+      <input type="number" id="amountInput" placeholder="Masukkan jumlah uang">
+    </div>
+    <button id="submitAdmin">Simpan Data</button>
+
+    <div id="totalKas">Total Uang Kas: Rp 0</div>
+    <button id="downloadData">Download Data Kas</button>
+
+    <div class="data-container" id="dataContainer"></div>
+    <div class="history-container" id="historyContainer">
+      <h4>Histori Bulanan</h4>
+    </div>
+  </div>
+  <script type="module" src="scripts.js"></script>
+</body>
+</html>
