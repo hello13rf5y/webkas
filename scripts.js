@@ -1,7 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-app.js";
-import { getDatabase, ref, set, update, onValue } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-database.js";
+import { getDatabase, ref, set, onValue, update } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-database.js";
 
-// Konfigurasi Firebase
 const firebaseConfig = {
   apiKey: "AIzaSyBGszzdRV-P4HcNWwz24FT1FyZF5RMZngc",
   authDomain: "core-project-70fb1.firebaseapp.com",
@@ -15,7 +14,6 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 
-// Fungsi untuk menghitung total uang kas
 function calculateTotal(snapshot) {
   let total = 0;
   snapshot.forEach((child) => {
@@ -24,7 +22,6 @@ function calculateTotal(snapshot) {
   document.getElementById("totalKas").textContent = `Total Uang Kas: Rp ${total.toLocaleString()}`;
 }
 
-// Fungsi untuk menghitung histori bulanan
 function calculateMonthlyHistory(snapshot) {
   const monthlyTotals = {};
   snapshot.forEach((child) => {
@@ -44,7 +41,6 @@ function calculateMonthlyHistory(snapshot) {
   }
 }
 
-// Fungsi untuk mengunduh data sebagai CSV
 function downloadCSV(snapshot) {
   let csvContent = "Nama, Jumlah, Bulan\n";
   snapshot.forEach((child) => {
@@ -59,7 +55,6 @@ function downloadCSV(snapshot) {
   link.click();
 }
 
-// Menyimpan dan memperbarui data
 document.getElementById("submitAdmin").addEventListener("click", () => {
   const name = document.getElementById("nameInput").value.trim();
   const amount = parseInt(document.getElementById("amountInput").value.trim(), 10);
@@ -102,7 +97,6 @@ document.getElementById("submitAdmin").addEventListener("click", () => {
   );
 });
 
-// Mendengarkan data dari Firebase
 const uangKasRef = ref(db, "uangKas");
 onValue(uangKasRef, (snapshot) => {
   const dataContainer = document.getElementById("dataContainer");
@@ -111,10 +105,10 @@ onValue(uangKasRef, (snapshot) => {
   // Update total kas
   calculateTotal(snapshot);
 
-  // Update histori bulanan
+  // Update monthly history
   calculateMonthlyHistory(snapshot);
 
-  // Tampilkan data individu
+  // Display individual data
   snapshot.forEach((child) => {
     const data = child.val();
     const box = `
@@ -127,7 +121,7 @@ onValue(uangKasRef, (snapshot) => {
   });
 });
 
-// Mengunduh data kas sebagai CSV
+// Download data kas as CSV
 document.getElementById("downloadData").addEventListener("click", () => {
   onValue(uangKasRef, (snapshot) => {
     if (snapshot.exists()) {
@@ -137,10 +131,4 @@ document.getElementById("downloadData").addEventListener("click", () => {
       swal("Peringatan!", "Data kas kosong, tidak ada yang dapat diunduh!", "warning");
     }
   }, { onlyOnce: true });
-});th}</strong></p>
-      </div>`;
-    dataContainer.innerHTML += box;
-  });
 });
-
-document.get
